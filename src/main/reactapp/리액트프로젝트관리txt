@@ -1,0 +1,7 @@
+리액트 프로젝트 폴더
+    - node_modules (git commit/push x)
+    - git에서 프로젝트 clone하면 node_modules 없음
+        -> npm start 불가능 => npm update : pakage.json의 dependencies          라이브러리들의 버전 재설치
+    - pakage.json : 외부 라이브러리들의 버전 관리 코드
+    - src
+        - index.js

@@ -18,13 +18,22 @@ import Clock from './chapter4/Clock';
 //chapter5 실습
 import CommentList from "./chapter5/CommentList";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+//chapter7 예제
+import Counter from "./chapter7/Counter";
+import UseStateList from "./chapter7/UseStateList";
+const root=ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  //오류에대한 유효성검사 : <React.StrictMode> 이거 넣으면 한번 더 실행됨
-  <React.StrictMode>  
-    <CommentList />
-  </React.StrictMode>
+  //<Counter />
+  <UseStateList />
 );
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   //오류에대한 유효성검사 : <React.StrictMode> 이거 넣으면 한번 더 실행됨
+//   <React.StrictMode>  
+//     <CommentList />
+//   </React.StrictMode>
+// );
 // root.render( // !!!!!!!여기가 렌더링 되는 곳이에요
 //   <React.StrictMode> //유효성검사 해주는부분
 //     {/* <App /> */}
