@@ -20,11 +20,24 @@ import CommentList from "./chapter5/CommentList";
 
 //chapter7 예제
 import Counter from "./chapter7/Counter";
-import UseStateList from "./chapter7/UseStateList";
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  //<Counter />
-  <UseStateList />
+
+// chapter8 예제/실습
+import ConfirmButton from './chapter8/ConfirmButton';
+
+//chapter9 예재실습
+import LandingPage from './chapter9/LandingPage';
+
+//chapter7 Counter2 실습
+import Counter2 from './chapter7/Counter2';
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render( 
+    // <CommentList/>
+    // <Counter />
+    // <UseStateList />
+    //<ConfirmButton />
+    //<LandingPage />
+    <Counter2/>
 );
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));

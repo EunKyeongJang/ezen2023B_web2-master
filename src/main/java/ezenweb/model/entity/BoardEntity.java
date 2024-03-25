@@ -1,45 +1,78 @@
 package ezenweb.model.entity;
 
+import ezenweb.model.repository.ReplyEntityRepositiry;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.sql.Date;
+import java.lang.reflect.Member;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-@Entity // 해당 클래스와 연동DB내 테이블과 매핑/연결 ( ORM )
+@Entity
 @Table(name="board")
+@Getter
 @Setter
-@NoArgsConstructor@AllArgsConstructor
 @Builder
-public class BoardEntity { // 테이블
-    @Id // PK(unique + not null)
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
-    private int bno;        // 게시물번호 PK
-
-    @Column(name="title", length=10, nullable=true)
-    private String btitle; // 게시물제목
+@ToString
+public class BoardEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int bno;
 
     @Column(columnDefinition = "longtext")
-    private String btitle2;
+    private String bcontent;
 
-    private boolean f0;
+    @ColumnDefault("0")
+    private int bview;
 
-    private byte f1;
-    private short f2;
-    private long f3;
+    //단방향 : fk필드
+    @JoinColumn(name="mno_fk")  //fk 필드명
+    @ManyToOne
+    private MemberEntity memberEntity;
 
-    private char f4;
-
-    private float f5;
-    private double f6;
-
-    private Date f7;
-    private LocalDateTime f8;
+    //양방향 : 게시물fk
+    @OneToMany(mappedBy = "boardEntity")
+    @ToString.Exclude
+    private List<ReplyEntity> replyEntitieList=new ArrayList<>();
 }
 /*
     create table BoardEntitiy(
         bno int ,
         btitle varchar(255)
     )
+
+
+    //    @Column(name = "title", length = 10 , nullable = false , unique = true )
+//    private String btitle; // 게시물제목
+//
+//    @Column(columnDefinition = "longtext")
+//    private String btitle2;
+//
+//    @Column(columnDefinition = "date")
+//    private String btitle3;
+//
+//    private boolean 필드0;
+//
+//    private byte 필드1;
+//    private short 필드2;
+//    private long 필드3;
+//
+//    private char 필드4;
+//
+//    private double 필드5;
+//    private float 필드6;
+//
+//    private Date 필드7;
+//    private LocalDateTime 필드8;
+//
+//    @Column( columnDefinition = "unsigned int(11)" )
+//    private int 필드9;
+
+
 */
