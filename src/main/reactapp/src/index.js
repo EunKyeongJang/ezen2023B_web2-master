@@ -30,6 +30,18 @@ import LandingPage from './chapter9/LandingPage';
 //chapter7 Counter2 실습
 import Counter2 from './chapter7/Counter2';
 
+//chapter10 AttendanceBook 실습
+import AttendanceBook from './chapter10/AttendanceBook';
+
+//chapter11 AttendanceBook 실습
+import NameForm from './chapter11/NameForm';
+
+//chapter11 SignUp 실습
+//import SignUp from './chapter11/SignUp';
+
+//component SignUp 실습
+import SignUp from './component/member/SignUp';
+
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render( 
     // <CommentList/>
@@ -37,7 +49,11 @@ root.render(
     // <UseStateList />
     //<ConfirmButton />
     //<LandingPage />
-    <Counter2/>
+    //<Counter2/>
+    //<AttendanceBook />s
+    //<NameForm />
+    //<SignUp />
+    <SignUp />
 );
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
