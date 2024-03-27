@@ -42,6 +42,15 @@ import NameForm from './chapter11/NameForm';
 //component SignUp 실습
 import SignUp from './component/member/SignUp';
 
+//chapter0 Axios컴포넌트 실습
+import Axios컴포넌트 from './chapter0/Axios컴포넌트';
+
+//chapter0 Route 실습
+import Route컴포넌트 from './chapter0/Route컴포넌트';
+
+//web2 라우터 컴포넌트
+import Index from './component/Index';
+
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render( 
     // <CommentList/>
@@ -53,7 +62,10 @@ root.render(
     //<AttendanceBook />s
     //<NameForm />
     //<SignUp />
-    <SignUp />
+    //<SignUp />
+    //<Axios컴포넌트 />
+    //<Route컴포넌트 />
+    <Index />
 );
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));

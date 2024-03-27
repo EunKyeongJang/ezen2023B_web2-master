@@ -26,8 +26,20 @@ export default function SignUp(props){
         memail : memail,
         mpassword : mpassword,
         mname : mname}
-        axios.post("http://localhost:80/member/signup/post.do",info)     //localhost:80 생략 시 localhost:3000으로 들어감
-        .then(response => { console.log(response)} )
+
+        //localhost:80 생략 시 localhost:3000으로 들어감
+        //contentType : json
+        axios.post("/member/signup/post.do",info)
+        .then(response => { console.log(response)
+            if(response.data){
+                alert("회원가입 성공");
+                window.location.href="/member/login";
+            }
+            else{
+                alert("회원가입 실패");
+            }
+        } )
+        .catch(error => {console.log(error);})
     }
 
     return(<>

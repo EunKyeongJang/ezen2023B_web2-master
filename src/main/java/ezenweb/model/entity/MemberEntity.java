@@ -8,6 +8,8 @@ import org.hibernate.annotations.ColumnDefault;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="member")
 @Getter @Setter
