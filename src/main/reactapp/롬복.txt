@@ -1,0 +1,20 @@
+- 롬복 설치
+    1. build.gradle
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    2. (인텔리제이) 마켓플레이스 lombok 설치
+- 롬복
+    정의 : @어노테이션 통한 반복 소스코드를 컴파일 과정에서 생성해주는 역할
+- 롬복 어노테이션   
+    1. @AllArgsConstructor      : 모든 필드를 받는 생성자
+    2. @NoArgsConstructor       : 빈 필드를 받는 생성자(기본생성자)
+    3. @Getter @Setter          : 
+    4.@ToString
+        - @ToString.Exclude
+    5. Builder
+        - @Builder.Default
+
+- 빌더패턴
+    - 생성자의 규칙을 좀 더 유연하게 사용할 수 있도록 생성자 대신 메소드 제공
+    - 사용방법
+        클래스명.builder().필드명(값)

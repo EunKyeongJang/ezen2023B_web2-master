@@ -1,17 +1,11 @@
 package ezenweb.model.entity;
 
-import ezenweb.model.repository.ReplyEntityRepositiry;
+import ezenweb.model.dto.BoardDto;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.lang.reflect.Member;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,7 +14,7 @@ import java.util.List;
 @Setter
 @Builder
 @ToString
-public class BoardEntity {
+public class BoardEntity extends BaseTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bno;
@@ -39,7 +33,20 @@ public class BoardEntity {
     //양방향 : 게시물fk
     @OneToMany(mappedBy = "boardEntity")
     @ToString.Exclude
+    @Builder.Default
     private List<ReplyEntity> replyEntitieList=new ArrayList<>();
+
+    //게시물 출력
+    public BoardDto toDto(){
+        return BoardDto.builder()
+                .bcontent(this.bcontent)
+                .bview(this.bview)
+                .mno_fk(memberEntity.getMno())
+                .memail(memberEntity.getMemail())
+                //.cdate(this.getCdate())
+                //.udate(this.getUdate())
+                .build();
+    }
 }
 /*
     create table BoardEntitiy(

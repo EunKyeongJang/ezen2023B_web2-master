@@ -1,23 +1,15 @@
 package ezenweb.model.dto;
 
-import ezenweb.model.entity.BoardEntity;
 import ezenweb.model.entity.MemberEntity;
-import ezenweb.model.entity.ReplyEntity;
-import jakarta.persistence.AttributeNode;
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
-
-import java.util.ArrayList;
-import java.util.List;
+import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 public class MemberDto {
     private int mno;
     private String memail;

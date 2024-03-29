@@ -1,12 +1,17 @@
 package ezenweb.controller;
 
+import ezenweb.model.dto.BoardDto;
 import ezenweb.model.dto.MemberDto;
 import ezenweb.service.MemberService;
 import lombok.Getter;
+import org.hibernate.boot.model.source.internal.hbm.AbstractToOneAttributeSourceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/member")
@@ -17,7 +22,7 @@ public class MemberController {
 
     //1. 회원가입
     @PostMapping("/signup/post.do")
-    public boolean doSignupPost(@RequestBody MemberDto memberDto){
+    public int doSignupPost(@RequestBody MemberDto memberDto){
         System.out.println("memail = " + memberDto);
 
         return memberService.doSignupPost(memberDto);
@@ -39,9 +44,14 @@ public class MemberController {
         return memberService.doLogoutGet();
     }
 
-    @GetMapping("/login/info/get.do")
-    public MemberDto doLoginInfo(){
-        return memberService.doLogininfo();
+    @GetMapping("/find/email/get.do")
+    public boolean doFindEmail(String memail){
+        return memberService.getFindMemail(memail);
+    }
+
+    @GetMapping("/find/myboard/get.do")
+    public List<Map<Object, Object>> findByMyBoardList(){
+        return memberService.findByMyBoardList();
     }
 
 }//c end
