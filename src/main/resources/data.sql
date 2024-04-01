@@ -1,3 +1,4 @@
+
 /* 1. 회원 샘플 데이터 */
 insert
     into member( memail , mpassword , mname  )

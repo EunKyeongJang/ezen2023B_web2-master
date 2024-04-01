@@ -44,6 +44,11 @@ public class MemberController {
         return memberService.doLogoutGet();
     }
 
+    @GetMapping("/login/info/get.do") // 4. 내정보
+    public MemberDto doLoginInfo( ){
+        return memberService.doLoginInfo();
+    }
+
     @GetMapping("/find/email/get.do")
     public boolean doFindEmail(String memail){
         return memberService.getFindMemail(memail);

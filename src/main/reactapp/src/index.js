@@ -57,6 +57,9 @@ import Calculator from './chapter12/Calculator';
 //chapter13 ProfileCard
 import ProfileCard from './chapter13/ProfileCard';
 
+//chapter14 DarkOrLight
+import DarkOrLight from './chapter14/DarkOrLight';
+
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render( 
     // <CommentList/>
@@ -74,6 +77,7 @@ root.render(
     <Index />
     //<Calculator />
     //<ProfileCard />
+    //<DarkOrLight/>
 );
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
