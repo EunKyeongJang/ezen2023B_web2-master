@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MediaCard from "./MediaCard";
 
 export default function Board(props){
+    //1. useState 변수
     const [boardList,setBoardList]=useState([]);
 
+    //2. 
     useEffect(()=>{
         axios.get('/board/get.do')
         .then(r=>{console.log(r);
@@ -13,15 +16,15 @@ export default function Board(props){
     }, []);
 
     return(<>
-        <table>
-            {boardList.map((result)=>{
-                return(<>                  
-            <tr>                
-                <td>{result.bcontent}</td>
-                <td>{result.memail}</td>
-            </tr>  
-                </>);
-            })}
-        </table>
+        <div style={{display : "flex"}}>
+            {
+                boardList.map((result)=>{      
+                    console.log("start map");     
+                    return(       
+                        <MediaCard board={result} />
+                    );
+                })
+            }
+        </div>
     </>);
 }

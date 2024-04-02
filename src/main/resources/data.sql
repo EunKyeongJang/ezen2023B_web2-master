@@ -27,3 +27,12 @@ insert
     ( '댓글4' , 2 , 1 ),
     ( '댓글5' , 3 , 4 ),
     ( '댓글5' , 1 , 5 );
+
+/* 4. 게시물 이미지 데이터 */
+insert
+    into boardimage( bimage , bno_fk )
+    values( "mang1.jpg" , 1 ),
+    ( "mang2.jpg" , 2 ),
+    ( "mang3.jpg" , 3 ),
+    ( "mang4.jpg" , 4 ),
+    ( "mang5.jpg" , 4 );

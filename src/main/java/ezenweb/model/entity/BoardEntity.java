@@ -3,20 +3,18 @@ package ezenweb.model.entity;
 import ezenweb.model.dto.BoardDto;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name="board")
-@Getter
-@Setter
-@Builder
-@ToString
-public class BoardEntity extends BaseTime{
+@Table(name = "board")
+@AllArgsConstructor@NoArgsConstructor
+@Getter @Setter@Builder@ToString
+public class BoardEntity extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bno;
@@ -38,15 +36,25 @@ public class BoardEntity extends BaseTime{
     @Builder.Default
     private List<ReplyEntity> replyEntitieList=new ArrayList<>();
 
-    //게시물 출력
+    //양방향 : boardimage
+    @OneToMany(mappedBy = "boardEntity")
+    @ToString.Exclude
+    @Builder.Default
+    private List<BoardImageEntity> boardImageEntityList=new ArrayList<>();
+
+    // - 게시물 출력
     public BoardDto toDto(){
-        return BoardDto.builder()
-                .bcontent(this.bcontent)
-                .bview(this.bview)
-                .mno_fk(memberEntity.getMno())
-                .memail(memberEntity.getMemail())
-                //.cdate(this.getCdate())
-                //.udate(this.getUdate())
+        return  BoardDto.builder()
+                .bno( this.bno )
+                .bcontent( this.bcontent )
+                .bview( this.bview )
+                .mno_fk( memberEntity.getMno() )
+                .memail( memberEntity.getMemail() )
+                .cdate(this.getCdate())
+                .udate(this.getUdate())
+                .bimgList(this.boardImageEntityList.stream().map(
+                        (imgEntity)->{ return imgEntity.getBimage();}
+                ).collect(Collectors.toList()))
                 .build();
     }
 }
