@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 export default function MediaCard(props) {
     console.log(props);
     console.log("MediaCard 실행");
+    let bno=props.board.bno;
+    let mno_fk=props.board.mno_fk;
+
   return (
     <Card sx={{ maxWidth: 400 }}>
       <CardMedia
@@ -18,14 +21,17 @@ export default function MediaCard(props) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
+          {props.board.bno}  
           {props.board.bcontent}
+          {props.board.mno_fk}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {props.board.memail}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
+        {/* 삭제버튼 */}
+        <Button size="small" onClick={(event)=>props.deleteBoard(event,bno,mno_fk)}>삭제</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>

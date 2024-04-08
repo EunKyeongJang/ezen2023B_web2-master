@@ -18,8 +18,7 @@ export default function Header(props){
     }, []);
 
     //2. 로그아웃
-    const onLogOut=()=>{
-        
+    const onLogOut=()=>{        
         console.log(loginInfo);
         setLoginInfo('');
     }
@@ -34,6 +33,7 @@ export default function Header(props){
                 <li><button onClick={onLogOut} type="button">로그아웃</button></li>
                 <li><Link to="/board/write">글쓰기</Link></li>
                 <li><Link to="/board">글보기</Link></li>
+                <li><Link to="/chat">글보기</Link></li>
             </ul>
         </div>
     </>);

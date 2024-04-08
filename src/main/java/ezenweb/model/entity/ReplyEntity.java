@@ -1,11 +1,10 @@
 package ezenweb.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="reply")
 @Getter
